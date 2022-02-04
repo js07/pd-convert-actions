@@ -1,4 +1,14 @@
+{{#if defineComponent}}
 module.exports = defineComponent({
+  {{> componentProperties }}
+})
+{{else}}
+module.exports = {
+  {{> componentProperties }}
+}
+{{/if}}
+
+{{~#*inline "componentProperties"}}
   key: {{tostring key}},
   name: {{tostring name}},
   description: {{tostring description}},
@@ -24,4 +34,4 @@ module.exports = defineComponent({
   {{/each}}
   },
   async run({ $ }) {{{code}}}
-})
+{{/inline}}
