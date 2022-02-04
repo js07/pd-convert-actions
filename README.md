@@ -13,7 +13,7 @@ npm install
 ```
 Run CLI
 ```
-node bin/cli.js <path/to/actions.csv>
+node bin/cli.js ./test/data/actions.csv
 ```
 
 ## Lib
@@ -38,4 +38,287 @@ const {
   appSlug,
   componentSlug,
 } = await convert(actionConfig);
+```
+
+# Examples
+###### _Created with v0.0.2_
+
+The __[examples](./examples)__ directory contains examples of code before and after conversion in addition to the ones below.
+
+- `segment-track`
+
+**Before**
+```js
+return await require("@pipedreamhq/platform").axios(this, {
+  method: 'post',
+  url: `https://api.segment.io/v1/track`,
+  auth: {
+    username: auths.segment.write_key,
+  },
+  data: {
+    anonymousId: params.anonymousId,
+    context: params.context,
+    event: params.event,
+    integrations: params.integrations,
+    properties: params.properties,
+    timestamp: params.timestamp,
+    userId: params.userId,
+  },
+})
+```
+**After**
+```js
+module.exports = {
+  key: "segment-track",
+  name: "Track actions your users perform",
+  description: "Track lets you record the actions your users perform (note requires userId or anonymousId)",
+  version: "0.0.1",
+  type: "action",
+  props: {
+    segment: {
+      type: "app",
+      app: "segment",
+    },
+    anonymousId: {
+      type: "string",
+      description: "A pseudo-unique substitute for a User ID, for cases when you dont have an absolutely unique identifier. A userId or an anonymousId is required.",
+      optional: true,
+    },
+    context: {
+      type: "object",
+      description: "Dictionary of extra information that provides useful context about a message, but is not directly related to the API call like ip address or locale",
+      optional: true,
+    },
+    event: {
+      type: "string",
+      description: "Name of the action that a user has performed.",
+    },
+    integrations: {
+      type: "object",
+      description: "Dictionary of destinations to either enable or disable",
+      optional: true,
+    },
+    properties: {
+      type: "object",
+      description: "\tFree-form dictionary of properties of the event, like revenue",
+      optional: true,
+    },
+    timestamp: {
+      type: "string",
+      description: "ISO-8601 date string",
+      optional: true,
+    },
+    userId: {
+      type: "string",
+      description: "Unique identifier for the user in your database. A userId or an anonymousId is required.",
+      optional: true,
+    },
+  },
+  async run({ $ }) {
+    return await require("@pipedreamhq/platform").axios(this, {
+      method: "post",
+      url: "https://api.segment.io/v1/track",
+      auth: {
+        username: this.segment.$auth.write_key,
+      },
+      data: {
+        anonymousId: this.anonymousId,
+        context: this.context,
+        event: this.event,
+        integrations: this.integrations,
+        properties: this.properties,
+        timestamp: this.timestamp,
+        userId: this.userId,
+      },
+    });
+  },
+};
+```
+
+- `mailchimp-add_or_update_subscriber`
+
+**Before**
+```js
+const axios = require('axios')
+
+list_id = params.list_id
+subscriber_hash = params.subscriber_hash
+skip_merge_validation = params.skip_merge_validation
+
+return await require("@pipedreamhq/platform").axios(this, {
+  url: `https://${auths.mailchimp.dc}.api.mailchimp.com/3.0/lists/${list_id}/members/${subscriber_hash}?skip_merge_validation=${skip_merge_validation}`,
+  headers: {
+    Authorization: `Bearer ${auths.mailchimp.oauth_access_token}`,
+  },
+  method: 'PUT',
+  data: {
+      "email_address": params.email_address,
+      "status_if_new": params.statu_if_new,
+      "email_type": params.email_type,
+      "status": params.status,
+      "merge_fields": params.merge_fields,
+      "interests": params.interests,
+      "language": params.language,
+      "vip": params.vip,
+      "location": {
+        "latitude": params.latitude,
+        "longitude": params.longitude
+      },
+      "marketing_permissions": [{
+        "marketing_permission_id": params.marketing_permission_id,
+        "enabled": params.marketing_permissions_enabled
+      }],
+      "ip_signup": params.ip_signup,
+      "timestamp_signup": params.timestamp_signup,
+      "ip_opt": params.ip_opt,
+      "timestamp_opt": params.timestamp_opt
+  }
+})
+```
+
+**After**
+```js
+module.exports = {
+  key: "mailchimp-add_or_update_subscriber",
+  name: "Add or Update Subscriber",
+  description: "Adds a new subscriber to an audience or updates existing subscriber.",
+  version: "0.0.1",
+  type: "action",
+  props: {
+    mailchimp: {
+      type: "app",
+      app: "mailchimp",
+    },
+    list_id: {
+      type: "string",
+      description: "The unique ID for the list.",
+    },
+    subscriber_hash: {
+      type: "string",
+      description: "The MD5 hash of the lowercase version of the list member's email address.",
+    },
+    skip_merge_validation: {
+      type: "boolean",
+      description: "If skip_merge_validation is true, member data will be accepted without merge field values, even if the merge field is usually required. This defaults to False.",
+      optional: true,
+    },
+    email_address: {
+      type: "string",
+      description: "Email address for a subscriber. This value is required only if the email address is not already present on the list.",
+    },
+    statu_if_new: {
+      type: "string",
+      description: "Subscriber's status. This value is required only if the email address is not already present on the list.",
+    },
+    email_type: {
+      type: "string",
+      description: "Type of email this member asked to get ('html' or 'text').",
+      optional: true,
+    },
+    status: {
+      type: "string",
+      description: "Subscriber's current status.",
+      optional: true,
+    },
+    merge_fields: {
+      type: "object",
+      description: "An individual merge var and value for a member.",
+      optional: true,
+    },
+    interests: {
+      type: "object",
+      description: "The key of this object's properties is the ID of the interest in question.",
+      optional: true,
+    },
+    language: {
+      type: "string",
+      description: "If set/detected, the subscriber's language.",
+      optional: true,
+    },
+    vip: {
+      type: "boolean",
+      description: "VIP status for subscriber.",
+      optional: true,
+    },
+    latitude: {
+      type: "integer",
+      description: "The location latitude.",
+      optional: true,
+    },
+    longitude: {
+      type: "integer",
+      description: "The location longitude.",
+      optional: true,
+    },
+    marketing_permission_id: {
+      type: "string",
+      description: "The id for the marketing permission on the list.",
+      optional: true,
+    },
+    marketing_permissions_enabled: {
+      type: "boolean",
+      description: "If the subscriber has opted-in to the marketing permission.",
+      optional: true,
+    },
+    ip_signup: {
+      type: "string",
+      description: "IP address the subscriber signed up from.",
+      optional: true,
+    },
+    timestamp_signup: {
+      type: "string",
+      description: "The date and time the subscriber signed up for the list in ISO 8601 format.",
+      optional: true,
+    },
+    ip_opt: {
+      type: "string",
+      description: "The IP address the subscriber used to confirm their opt-in status.",
+      optional: true,
+    },
+    timestamp_opt: {
+      type: "string",
+      description: "The date and time the subscriber confirmed their opt-in status in ISO 8601 format.",
+      optional: true,
+    },
+  },
+  async run({ $ }) {
+    const axios = require("axios");
+
+    list_id = this.list_id;
+    subscriber_hash = this.subscriber_hash;
+    skip_merge_validation = this.skip_merge_validation;
+
+    return await require("@pipedreamhq/platform").axios(this, {
+      url: `https://${this.mailchimp.$auth.dc}.api.mailchimp.com/3.0/lists/${list_id}/members/${subscriber_hash}?skip_merge_validation=${skip_merge_validation}`,
+      headers: {
+        Authorization: `Bearer ${this.mailchimp.$auth.oauth_access_token}`,
+      },
+      method: "PUT",
+      data: {
+        "email_address": this.email_address,
+        "status_if_new": this.statu_if_new,
+        "email_type": this.email_type,
+        "status": this.status,
+        "merge_fields": this.merge_fields,
+        "interests": this.interests,
+        "language": this.language,
+        "vip": this.vip,
+        "location": {
+          "latitude": this.latitude,
+          "longitude": this.longitude,
+        },
+        "marketing_permissions": [
+          {
+            "marketing_permission_id": this.marketing_permission_id,
+            "enabled": this.marketing_permissions_enabled,
+          },
+        ],
+        "ip_signup": this.ip_signup,
+        "timestamp_signup": this.timestamp_signup,
+        "ip_opt": this.ip_opt,
+        "timestamp_opt": this.timestamp_opt,
+      },
+    });
+  },
+};
 ```

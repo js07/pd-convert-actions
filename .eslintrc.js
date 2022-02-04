@@ -10,7 +10,8 @@ module.exports = {
   },
   "ignorePatterns": [
     "test/data/**",
-    "test/output/**"
+    "test/output/**",
+    "examples/**",
   ],
   "rules": {
     "indent": [
