@@ -33,6 +33,12 @@ async function prompt() {
       default: "./components",
       when: ({ outputType }) => outputType === "js",
     },
+    {
+      type: "confirm",
+      name: "defineComponent",
+      message: "Wrap the component with `defineComponent()`?",
+      default: false,
+    },
   ]);
 }
 
@@ -40,7 +46,7 @@ async function readCsvFile(path) {
   return csv().fromFile(path);
 }
 
-async function convertAction(actionConfig) {
+async function convertAction(actionConfig, options) {
   const {
     CODE_RAW: codeRaw,
     TITLE: title,
@@ -57,7 +63,7 @@ async function convertAction(actionConfig) {
       namespace,
       title,
       description,
-    });
+    }, options);
   } catch (error) {
     console.log(`Error converting action "${title}":`, error);
   }
@@ -66,22 +72,28 @@ async function convertAction(actionConfig) {
 async function main() {
   const [csvPath] = argv._;
   const answers = await prompt();
+  const {
+    outputType,
+    componentsDirPath,
+    out,
+    defineComponent,
+  } = answers;
 
   const actionConfigs = await readCsvFile(csvPath);
 
   let convertedActions = [];
   for (const actionConfig of actionConfigs) {
-    convertedActions.push(await convertAction(actionConfig));
+    convertedActions.push(await convertAction(actionConfig, { defineComponent }));
   }
 
-  if (answers.outputType === "js") {
+  if (outputType === "js") {
     for (const action of convertedActions) {
       const { code, appSlug, componentSlug } = action;
-      writeFile(`${answers.componentsDirPath}/${appSlug}/actions/${componentSlug}/${componentSlug}.js`, code);
+      writeFile(`${componentsDirPath}/${appSlug}/actions/${componentSlug}/${componentSlug}.js`, code);
     }
   } else {
     const csv = parse(convertedActions, { fields: ["code", "appSlug", "componentSlug"] });
-    writeFile(answers.out, csv);
+    writeFile(out, csv);
   }
 }
 
