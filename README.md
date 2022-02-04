@@ -6,9 +6,13 @@ Clone repo
 ```
 git clone https://github.com/js07/pd-convert-actions.git
 ```
-Run CLI
+Install dependencies
 ```
 cd pd-convert-actions
+npm install
+```
+Run CLI
+```
 node bin/cli.js <path/to/actions.csv>
 ```
 
