@@ -1,0 +1,27 @@
+module.exports = defineComponent({
+  key: {{tostring key}},
+  name: {{tostring name}},
+  description: {{tostring description}},
+  version: "0.0.1",
+  type: "action",
+  props: {
+  {{#each props}}
+    {{this.key}}: {
+      type: "{{this.type}}",
+    {{#if this.app}}
+      app: {{tostring this.app}},
+    {{/if}}
+    {{#if (isdefined this.label)}}
+      label: {{{tostring this.label}}},
+    {{/if}}
+    {{#if (isdefined this.description)}}
+      description: {{tostring this.description}},
+    {{/if}}
+    {{#if (isdefined this.optional)}}
+      optional: {{this.optional}},
+    {{/if}}
+    },
+  {{/each}}
+  },
+  async run({ $ }) {{{code}}}
+})
