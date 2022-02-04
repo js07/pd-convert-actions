@@ -8,6 +8,7 @@ git clone https://github.com/js07/pd-convert-actions.git
 ```
 Run CLI
 ```
+cd pd-convert-actions
 node bin/cli.js <path/to/actions.csv>
 ```
 
