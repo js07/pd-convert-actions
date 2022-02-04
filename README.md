@@ -12,8 +12,11 @@ cd pd-convert-actions
 npm install
 ```
 Run CLI
-```
-node bin/cli.js ./test/data/actions.csv
+```sh-session
+$ node bin/cli.js ./test/data/actions.csv
+? Output as separate javascript files or a single CSV file? JavaScript
+? Path to components directory to write files to ./components
+? Wrap the component with `defineComponent()`? (y/N)
 ```
 
 ## Lib
@@ -45,7 +48,7 @@ const {
 
 The __[examples](./examples)__ directory contains examples of code before and after conversion in addition to the ones below.
 
-- `segment-track`
+`segment-track`
 
 **Before**
 ```js
@@ -135,7 +138,7 @@ module.exports = {
 };
 ```
 
-- `mailchimp-add_or_update_subscriber`
+`mailchimp-add_or_update_subscriber`
 
 **Before**
 ```js
