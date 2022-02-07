@@ -16,6 +16,16 @@ module.exports = {
   type: "action",
   props: {
   {{#each props}}
+    {{> componentProp }}
+  {{/each}}
+  },
+  async run({ $ }) {{{code}}}
+{{/inline}}
+
+{{~#*inline "componentProp"}}
+  {{#if this.isString}}  
+    {{this.key}}: "{{this.type}}",
+  {{else}}
     {{this.key}}: {
       type: "{{this.type}}",
     {{#if this.app}}
@@ -31,7 +41,5 @@ module.exports = {
       optional: {{this.optional}},
     {{/if}}
     },
-  {{/each}}
-  },
-  async run({ $ }) {{{code}}}
+  {{/if}}
 {{/inline}}

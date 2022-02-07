@@ -30,7 +30,7 @@ async function prompt() {
       type: "input",
       name: "componentsDirPath",
       message: "Path to components directory to write files to",
-      default: "./components",
+      default: "./test/output",
       when: ({ outputType }) => outputType === "js",
     },
     {
