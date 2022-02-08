@@ -59,8 +59,8 @@ async function convertAction(actionConfig, options) {
     DEFAULT_NAMESPACE: namespace,
     DESCRIPTION: description,
     CODE_CONFIG_JSON: codeConfig,
-    PUBLISHED_VERSION_MAJOR: publishedVersionMajor,
-    PUBLISHED_VERSION_MINOR: publishedVersionMinor,
+    PUBLISHED_VERSION_MAJOR: versionMajor = 0,
+    PUBLISHED_VERSION_MINOR: versionMinor = 0,
   } = actionConfig;
   try {
     return await convert({
@@ -69,6 +69,8 @@ async function convertAction(actionConfig, options) {
       namespace,
       title,
       description,
+      versionMajor,
+      versionMinor,
     }, options);
   } catch (error) {
     console.log(`Error converting action "${title}":`, error);
