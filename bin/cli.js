@@ -39,6 +39,12 @@ async function prompt() {
       message: "Wrap the component with `defineComponent()`?",
       default: false,
     },
+    {
+      type: "confirm",
+      name: "createLabel",
+      message: "Generate labels for component props?",
+      default: false,
+    },
   ]);
 }
 
@@ -77,13 +83,18 @@ async function main() {
     componentsDirPath,
     out,
     defineComponent,
+    createLabel,
   } = answers;
 
   const actionConfigs = await readCsvFile(csvPath);
 
   let convertedActions = [];
   for (const actionConfig of actionConfigs) {
-    convertedActions.push(await convertAction(actionConfig, { defineComponent }));
+    const convertedAction = await convertAction(actionConfig, {
+      defineComponent,
+      createLabel
+    });
+    convertedActions.push(convertedAction);
   }
 
   if (outputType === "js") {
