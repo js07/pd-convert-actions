@@ -4,7 +4,8 @@
   "description": "Convert legacy actions to component actions",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "gen-examples": "node ./bin/gen-examples.js ./test/data/actions.csv"
   },
   "author": "",
   "license": "ISC",

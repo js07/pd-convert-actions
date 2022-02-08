@@ -15,8 +15,9 @@ Run CLI
 ```sh-session
 $ node bin/cli.js ./test/data/actions.csv
 ? Output as separate javascript files or a single CSV file? JavaScript
-? Path to components directory to write files to ./components
-? Wrap the component with `defineComponent()`? (y/N)
+? Path to components directory to write files to ./test/output
+? Wrap the component with `defineComponent()`? No
+? Generate labels for component props? (y/N)
 ```
 
 ## Lib
@@ -34,7 +35,9 @@ const actionConfig = {
   title: "Title/Name of the action",
   description: "Description of the action",
   namespace: "component_slug",
-  codeConfig: "{ params_schema: { ... } }"
+  codeConfig: "{ params_schema: { ... } }",
+  versionMajor: "0",
+  versionMinor: "2",
 };
 const {
   code,
@@ -44,9 +47,9 @@ const {
 ```
 
 # Examples
-###### _Created with v0.0.2_
+###### _Created with v0.1.0_
 
-The __[examples](./examples)__ directory contains examples of code before and after conversion in addition to the ones below.
+The __[examples](./examples)__ directory contains examples of converted actions, in addition to the ones below. Action config can be found in __[actions.csv](./test/data/actions.csv)__.
 
 `segment-track`
 
@@ -75,7 +78,7 @@ module.exports = {
   key: "segment-track",
   name: "Track actions your users perform",
   description: "Track lets you record the actions your users perform (note requires userId or anonymousId)",
-  version: "0.0.1",
+  version: "0.3.0",
   type: "action",
   props: {
     segment: {
@@ -118,7 +121,7 @@ module.exports = {
     },
   },
   async run({ $ }) {
-    return await require("@pipedreamhq/platform").axios(this, {
+    return await require("@pipedream/platform").axios($, {
       method: "post",
       url: "https://api.segment.io/v1/track",
       auth: {
@@ -185,7 +188,7 @@ module.exports = {
   key: "mailchimp-add_or_update_subscriber",
   name: "Add or Update Subscriber",
   description: "Adds a new subscriber to an audience or updates existing subscriber.",
-  version: "0.0.1",
+  version: "0.2.0",
   type: "action",
   props: {
     mailchimp: {
@@ -291,7 +294,7 @@ module.exports = {
     subscriber_hash = this.subscriber_hash;
     skip_merge_validation = this.skip_merge_validation;
 
-    return await require("@pipedreamhq/platform").axios(this, {
+    return await require("@pipedream/platform").axios($, {
       url: `https://${this.mailchimp.$auth.dc}.api.mailchimp.com/3.0/lists/${list_id}/members/${subscriber_hash}?skip_merge_validation=${skip_merge_validation}`,
       headers: {
         Authorization: `Bearer ${this.mailchimp.$auth.oauth_access_token}`,

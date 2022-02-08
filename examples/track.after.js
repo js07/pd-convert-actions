@@ -2,7 +2,7 @@ module.exports = {
   key: "segment-track",
   name: "Track actions your users perform",
   description: "Track lets you record the actions your users perform (note requires userId or anonymousId)",
-  version: "0.0.1",
+  version: "0.3.0",
   type: "action",
   props: {
     segment: {
@@ -45,7 +45,7 @@ module.exports = {
     },
   },
   async run({ $ }) {
-    return await require("@pipedreamhq/platform").axios(this, {
+    return await require("@pipedream/platform").axios($, {
       method: "post",
       url: "https://api.segment.io/v1/track",
       auth: {

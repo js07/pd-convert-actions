@@ -2,7 +2,7 @@ module.exports = {
   key: "mailchimp-add_or_update_subscriber",
   name: "Add or Update Subscriber",
   description: "Adds a new subscriber to an audience or updates existing subscriber.",
-  version: "0.0.1",
+  version: "0.2.0",
   type: "action",
   props: {
     mailchimp: {
@@ -108,7 +108,7 @@ module.exports = {
     subscriber_hash = this.subscriber_hash;
     skip_merge_validation = this.skip_merge_validation;
 
-    return await require("@pipedreamhq/platform").axios(this, {
+    return await require("@pipedream/platform").axios($, {
       url: `https://${this.mailchimp.$auth.dc}.api.mailchimp.com/3.0/lists/${list_id}/members/${subscriber_hash}?skip_merge_validation=${skip_merge_validation}`,
       headers: {
         Authorization: `Bearer ${this.mailchimp.$auth.oauth_access_token}`,

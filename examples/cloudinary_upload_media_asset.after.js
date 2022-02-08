@@ -2,7 +2,7 @@ module.exports = {
   key: "cloudinary-cloudinary_upload_media_asset",
   name: "Upload Media Asset",
   description: "Uploads media assets in the cloud such as images or videos, and allows configuration options to be set on the upload.",
-  version: "0.0.1",
+  version: "0.5.0",
   type: "action",
   props: {
     cloudinary: {

@@ -2,7 +2,7 @@ module.exports = {
   key: "segment-identify",
   name: "Identify a user, tie them to their actions and record traits about them",
   description: "identify lets you tie a user to their actions and record traits about them. It includes a unique User ID and any optional traits you know about them (note requires userId or anonymousId)",
-  version: "0.0.1",
+  version: "0.2.0",
   type: "action",
   props: {
     segment: {
@@ -41,7 +41,7 @@ module.exports = {
     },
   },
   async run({ $ }) {
-    return await require("@pipedreamhq/platform").axios(this, {
+    return await require("@pipedream/platform").axios($, {
       method: "post",
       url: "https://api.segment.io/v1/identify",
       auth: {
