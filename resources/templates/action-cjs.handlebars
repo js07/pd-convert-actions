@@ -1,3 +1,6 @@
+{{#if (isdefined hashId)}}
+// legacy_hash_id: "{{hashId}}"
+{{/if}}
 {{#if defineComponent}}
 module.exports = defineComponent({
   {{> componentProperties }}
