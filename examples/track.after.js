@@ -1,8 +1,9 @@
+// legacy_hash_id: "a_2wim5R"
 module.exports = {
   key: "segment-track",
   name: "Track actions your users perform",
   description: "Track lets you record the actions your users perform (note requires userId or anonymousId)",
-  version: "0.3.0",
+  version: "0.3.1",
   type: "action",
   props: {
     segment: {
@@ -11,7 +12,7 @@ module.exports = {
     },
     anonymousId: {
       type: "string",
-      description: "A pseudo-unique substitute for a User ID, for cases when you dont have an absolutely unique identifier. A userId or an anonymousId is required.",
+      description: "A pseudo-unique substitute for a User ID, for cases when you don't have an absolutely unique identifier. A userId or an anonymousId is required.",
       optional: true,
     },
     context: {

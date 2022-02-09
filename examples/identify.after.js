@@ -1,8 +1,9 @@
+// legacy_hash_id: "a_poik7m"
 module.exports = {
   key: "segment-identify",
   name: "Identify a user, tie them to their actions and record traits about them",
   description: "identify lets you tie a user to their actions and record traits about them. It includes a unique User ID and any optional traits you know about them (note requires userId or anonymousId)",
-  version: "0.2.0",
+  version: "0.2.1",
   type: "action",
   props: {
     segment: {
@@ -11,7 +12,7 @@ module.exports = {
     },
     anonymousId: {
       type: "string",
-      description: "A pseudo-unique substitute for a User ID, for cases when you dont have an absolutely unique identifier. A userId or an anonymousId is required.",
+      description: "A pseudo-unique substitute for a User ID, for cases when you don't have an absolutely unique identifier. A userId or an anonymousId is required.",
       optional: true,
     },
     context: {

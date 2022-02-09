@@ -1,8 +1,9 @@
+// legacy_hash_id: "a_RAiaJ1"
 module.exports = {
   key: "mailchimp-add_or_update_subscriber",
   name: "Add or Update Subscriber",
   description: "Adds a new subscriber to an audience or updates existing subscriber.",
-  version: "0.2.0",
+  version: "0.2.1",
   type: "action",
   props: {
     mailchimp: {
@@ -102,8 +103,6 @@ module.exports = {
     },
   },
   async run({ $ }) {
-    const axios = require("axios");
-
     list_id = this.list_id;
     subscriber_hash = this.subscriber_hash;
     skip_merge_validation = this.skip_merge_validation;

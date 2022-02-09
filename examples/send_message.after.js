@@ -1,8 +1,9 @@
+// legacy_hash_id: "a_1WiE5L"
 module.exports = {
   key: "chat_api_for_whatsapp-send_message",
   name: "Send Message",
   description: "Send a message to a new or existing chat.",
-  version: "0.1.0",
+  version: "0.1.1",
   type: "action",
   props: {
     chat_api_for_whatsapp: {

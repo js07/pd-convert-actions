@@ -42,6 +42,7 @@ async function convertAction(actionConfig, options) {
     CODE_CONFIG_JSON: codeConfig,
     PUBLISHED_VERSION_MAJOR: versionMajor = 0,
     PUBLISHED_VERSION_MINOR: versionMinor = 0,
+    HID: hashId,
   } = actionConfig;
   try {
     return await convert({
@@ -52,6 +53,7 @@ async function convertAction(actionConfig, options) {
       description,
       versionMajor,
       versionMinor,
+      hashId,
     }, options);
   } catch (error) {
     console.log(`Error converting action "${title}":`, error);
@@ -63,7 +65,6 @@ async function main() {
   const answers = await prompt();
   const {
     componentsDirPath,
-    out,
     defineComponent,
     createLabel,
   } = answers;

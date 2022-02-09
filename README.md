@@ -38,6 +38,7 @@ const actionConfig = {
   codeConfig: "{ params_schema: { ... } }",
   versionMajor: "0",
   versionMinor: "2",
+  hashId: "a_67imr8"
 };
 const {
   code,
@@ -47,7 +48,7 @@ const {
 ```
 
 # Examples
-###### _Created with v0.1.0_
+###### _Created with v0.2.0_
 
 The __[examples](./examples)__ directory contains examples of converted actions, in addition to the ones below. Action config can be found in __[actions.csv](./test/data/actions.csv)__.
 
@@ -74,11 +75,12 @@ return await require("@pipedreamhq/platform").axios(this, {
 ```
 **After**
 ```js
+// legacy_hash_id: "a_2wim5R"
 module.exports = {
   key: "segment-track",
   name: "Track actions your users perform",
   description: "Track lets you record the actions your users perform (note requires userId or anonymousId)",
-  version: "0.3.0",
+  version: "0.3.1",
   type: "action",
   props: {
     segment: {
@@ -87,7 +89,7 @@ module.exports = {
     },
     anonymousId: {
       type: "string",
-      description: "A pseudo-unique substitute for a User ID, for cases when you dont have an absolutely unique identifier. A userId or an anonymousId is required.",
+      description: "A pseudo-unique substitute for a User ID, for cases when you don't have an absolutely unique identifier. A userId or an anonymousId is required.",
       optional: true,
     },
     context: {
@@ -184,11 +186,12 @@ return await require("@pipedreamhq/platform").axios(this, {
 
 **After**
 ```js
+// legacy_hash_id: "a_RAiaJ1"
 module.exports = {
   key: "mailchimp-add_or_update_subscriber",
   name: "Add or Update Subscriber",
   description: "Adds a new subscriber to an audience or updates existing subscriber.",
-  version: "0.2.0",
+  version: "0.2.1",
   type: "action",
   props: {
     mailchimp: {
@@ -288,8 +291,6 @@ module.exports = {
     },
   },
   async run({ $ }) {
-    const axios = require("axios");
-
     list_id = this.list_id;
     subscriber_hash = this.subscriber_hash;
     skip_merge_validation = this.skip_merge_validation;
