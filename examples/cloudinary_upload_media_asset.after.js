@@ -230,7 +230,7 @@ module.exports = {
       optional: true,
     },
   },
-  async run({ $ }) {
+  async run() {
   //See the API docs: https://cloudinary.com/documentation/image_upload_api_reference#upload_method
 
     if (!this.file) {
@@ -246,14 +246,14 @@ module.exports = {
     });
 
     //A simple callback to throw an error or return the result
-    var upload_response;
+    var uploadResponse;
     const callback = function(error, result) {
       if (error) {
-        const error_content = JSON.stringify(error);
-        console.log(error_content);
-        throw new Error(error_content);
+        const errorContent = JSON.stringify(error);
+        console.log(errorContent);
+        throw new Error(errorContent);
       }
-      upload_response = result;
+      uploadResponse = result;
     };
 
     //Populates optional parameters to the request
@@ -305,6 +305,6 @@ module.exports = {
 
     //Sends the request against Cloudinary to upload a media asset, with given configuration options
     await cloudinary.uploader.upload(this.file, options, callback);
-    return upload_response;
+    return uploadResponse;
   },
 };

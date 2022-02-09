@@ -103,12 +103,12 @@ module.exports = {
     },
   },
   async run({ $ }) {
-    list_id = this.list_id;
-    subscriber_hash = this.subscriber_hash;
-    skip_merge_validation = this.skip_merge_validation;
+    let listId = this.list_id;
+    let subscriberHash = this.subscriber_hash;
+    let skipMergeValidation = this.skip_merge_validation;
 
     return await require("@pipedream/platform").axios($, {
-      url: `https://${this.mailchimp.$auth.dc}.api.mailchimp.com/3.0/lists/${list_id}/members/${subscriber_hash}?skip_merge_validation=${skip_merge_validation}`,
+      url: `https://${this.mailchimp.$auth.dc}.api.mailchimp.com/3.0/lists/${listId}/members/${subscriberHash}?skip_merge_validation=${skipMergeValidation}`,
       headers: {
         Authorization: `Bearer ${this.mailchimp.$auth.oauth_access_token}`,
       },
