@@ -47,6 +47,30 @@ const {
 } = await convert(actionConfig);
 ```
 
+# Conversions
+
+Config
+- params_schema -> props
+- DEFAULT_NAMESPACE -> component_slug
+- version `<Major>.<minor>` -> `<Major>.<minor>.1`
+- TITLE -> name
+
+Code
+- `this.$checkpoint =` -> `$.db.set("$checkpoint",` (+ `db` prop)
+- `this.$checkpoint` -> `$.db.get("$checkpoint")` (+ `db` prop)
+- `$send` -> `$.send`
+- `$respond` -> `$.respond`
+- `$end` -> `$.flow.exit`
+- `params` -> `this`
+- `auths.app_name` -> `this.app_name.$auth` (+ `app_name` prop)
+- `require("@pipedreamhq/platform")` -> require("@pipedream/platform")
+- `.axios(this,` -> `.axios($,`
+
+Fixes
+- Remove unused `const axios = require("axios")`
+- [Replace byte character with `'`](https://github.com/js07/pd-convert-actions/pull/23)
+- Fix eslint-fixable errors
+
 # Examples
 ###### _Created with v0.2.0_
 
