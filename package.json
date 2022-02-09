@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "camelcase": "^6.3.0",
     "csvtojson": "^2.0.10",
     "eslint": "^7.32.0",
     "eslint-plugin-jsonc": "^1.7.0",
