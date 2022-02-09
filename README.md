@@ -69,7 +69,10 @@ Code
 Fixes
 - Remove unused `const axios = require("axios")`
 - [Replace byte character with `'`](https://github.com/js07/pd-convert-actions/pull/23)
-- Fix eslint-fixable errors
+- Adds declarator for undeclared variables (eslint no-undef)
+- Removes unused variables (eslint no-unused-var)
+- Converts variables to camelCase (eslint camelcase)
+- Fix eslint-fixable eslint errors
 
 # Examples
 ###### _Created with v0.2.0_
