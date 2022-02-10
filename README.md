@@ -17,7 +17,25 @@ $ node bin/cli.js ./test/data/actions.csv
 ? Output as separate javascript files or a single CSV file? JavaScript
 ? Path to components directory to write files to ./test/output
 ? Wrap the component with `defineComponent()`? No
-? Generate labels for component props? (y/N)
+? Generate labels for component props? No
+? Convert generated component to ESM? (Y/n)
+```
+
+### CLI Options
+```
+USAGE
+  $ bin/cli.js FILE
+
+ARGUMENTS
+  FILE  csv file containing legacy action configs
+
+OPTIONS
+  --outputType=js/csv      Output actions as a csv file or js files
+  --out                    CSV output path
+  --componentsDirPath      Path to components directory to write js files
+  --defineComponent        Wrap the component with defineComponent()
+  --createLabel            Generate labels for component props
+  --[no-]toEsm             Convert generated component to ESM (default: Yes)
 ```
 
 ## Lib
@@ -73,6 +91,7 @@ Fixes
 - Adds declarator for undeclared variables (eslint no-undef)
 - Removes unused variables (eslint no-unused-var)
 - Converts variables to camelCase (eslint camelcase)
+- Converts code from CommonJS to ESModules
 - Fix eslint-fixable eslint errors
 
 # Examples

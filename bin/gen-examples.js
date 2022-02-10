@@ -26,7 +26,13 @@ async function prompt() {
       message: "Generate labels for component props?",
       default: false,
     },
-  ]);
+    {
+      type: "confirm",
+      name: "toEsm",
+      message: "Convert generated component to ESM?",
+      default: true,
+    },
+  ], argv);
 }
 
 async function readCsvFile(path) {
@@ -67,6 +73,7 @@ async function main() {
     componentsDirPath,
     defineComponent,
     createLabel,
+    toEsm,
   } = answers;
 
   const actionConfigs = await readCsvFile(csvPath);
@@ -74,7 +81,8 @@ async function main() {
   for (const actionConfig of actionConfigs) {
     const convertedAction = await convertAction(actionConfig, {
       defineComponent,
-      createLabel
+      createLabel,
+      toEsm,
     });
 
     const { CODE_RAW: codeRaw, DEFAULT_NAMESPACE: namespace } = actionConfig;
