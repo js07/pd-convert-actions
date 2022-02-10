@@ -51,7 +51,7 @@ async function prompt() {
       message: "Convert generated component to ESM?",
       default: true,
     },
-  ]);
+  ], argv);
 }
 
 async function readCsvFile(path) {
