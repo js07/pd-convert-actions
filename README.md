@@ -61,9 +61,10 @@ Code
 - `$send` -> `$.send`
 - `$respond` -> `$.respond`
 - `$end` -> `$.flow.exit`
+- `this.name = "value"` -> `$.export("name", "value")`
 - `params` -> `this`
 - `auths.app_name` -> `this.app_name.$auth` (+ `app_name` prop)
-- `require("@pipedreamhq/platform")` -> require("@pipedream/platform")
+- `require("@pipedreamhq/platform")` -> `require("@pipedream/platform")`
 - `.axios(this,` -> `.axios($,`
 
 Fixes
