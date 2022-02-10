@@ -1,5 +1,7 @@
 // legacy_hash_id: "a_2wim5R"
-module.exports = {
+import { axios } from "@pipedream/platform";
+
+export default {
   key: "segment-track",
   name: "Track actions your users perform",
   description: "Track lets you record the actions your users perform (note requires userId or anonymousId)",
@@ -46,7 +48,7 @@ module.exports = {
     },
   },
   async run({ $ }) {
-    return await require("@pipedream/platform").axios($, {
+    return await axios($, {
       method: "post",
       url: "https://api.segment.io/v1/track",
       auth: {

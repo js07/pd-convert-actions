@@ -95,7 +95,7 @@ Fixes
 - Fix eslint-fixable eslint errors
 
 # Examples
-###### _Created with v0.3.0_
+###### _Created with v0.4.0_
 
 The __[examples](./examples)__ directory contains examples of converted actions, in addition to the ones below. Action config can be found in __[actions.csv](./test/data/actions.csv)__.
 
@@ -123,7 +123,9 @@ return await require("@pipedreamhq/platform").axios(this, {
 **After**
 ```js
 // legacy_hash_id: "a_2wim5R"
-module.exports = {
+import { axios } from "@pipedream/platform";
+
+export default {
   key: "segment-track",
   name: "Track actions your users perform",
   description: "Track lets you record the actions your users perform (note requires userId or anonymousId)",
@@ -170,7 +172,7 @@ module.exports = {
     },
   },
   async run({ $ }) {
-    return await require("@pipedream/platform").axios($, {
+    return await axios($, {
       method: "post",
       url: "https://api.segment.io/v1/track",
       auth: {
@@ -234,7 +236,9 @@ return await require("@pipedreamhq/platform").axios(this, {
 **After**
 ```js
 // legacy_hash_id: "a_RAiaJ1"
-module.exports = {
+import { axios } from "@pipedream/platform";
+
+export default {
   key: "mailchimp-add_or_update_subscriber",
   name: "Add or Update Subscriber",
   description: "Adds a new subscriber to an audience or updates existing subscriber.",
@@ -342,7 +346,7 @@ module.exports = {
     let subscriberHash = this.subscriber_hash;
     let skipMergeValidation = this.skip_merge_validation;
 
-    return await require("@pipedream/platform").axios($, {
+    return await axios($, {
       url: `https://${this.mailchimp.$auth.dc}.api.mailchimp.com/3.0/lists/${listId}/members/${subscriberHash}?skip_merge_validation=${skipMergeValidation}`,
       headers: {
         Authorization: `Bearer ${this.mailchimp.$auth.oauth_access_token}`,

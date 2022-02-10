@@ -1,5 +1,7 @@
 // legacy_hash_id: "a_MdizBn"
-module.exports = {
+import { v2 } from "cloudinary";
+
+export default {
   key: "cloudinary-cloudinary_upload_media_asset",
   name: "Upload Media Asset",
   description: "Uploads media assets in the cloud such as images or videos, and allows configuration options to be set on the upload.",
@@ -238,7 +240,7 @@ module.exports = {
     }
 
     //Imports and sets up the Cloudinary SDK
-    const cloudinary = require("cloudinary").v2;
+    const cloudinary = v2;
     cloudinary.config({
       cloud_name: this.cloudinary.$auth.cloud_name,
       api_key: this.cloudinary.$auth.api_key,

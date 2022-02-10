@@ -1,5 +1,7 @@
 // legacy_hash_id: "a_RAiaJ1"
-module.exports = {
+import { axios } from "@pipedream/platform";
+
+export default {
   key: "mailchimp-add_or_update_subscriber",
   name: "Add or Update Subscriber",
   description: "Adds a new subscriber to an audience or updates existing subscriber.",
@@ -107,7 +109,7 @@ module.exports = {
     let subscriberHash = this.subscriber_hash;
     let skipMergeValidation = this.skip_merge_validation;
 
-    return await require("@pipedream/platform").axios($, {
+    return await axios($, {
       url: `https://${this.mailchimp.$auth.dc}.api.mailchimp.com/3.0/lists/${listId}/members/${subscriberHash}?skip_merge_validation=${skipMergeValidation}`,
       headers: {
         Authorization: `Bearer ${this.mailchimp.$auth.oauth_access_token}`,
