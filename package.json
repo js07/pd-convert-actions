@@ -1,6 +1,6 @@
 {
   "name": "pd-convert-actions",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Convert legacy actions to component actions",
   "main": "index.js",
   "scripts": {
