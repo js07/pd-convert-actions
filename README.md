@@ -95,7 +95,7 @@ Fixes
 - Fix eslint-fixable eslint errors
 
 # Examples
-###### _Created with v0.4.0_
+###### _Created with v0.4.1-lw_
 
 The __[examples](./examples)__ directory contains examples of converted actions, in addition to the ones below. Action config can be found in __[actions.csv](./test/data/actions.csv)__.
 
@@ -239,7 +239,7 @@ return await require("@pipedreamhq/platform").axios(this, {
 import { axios } from "@pipedream/platform";
 
 export default {
-  key: "mailchimp-add_or_update_subscriber",
+  key: "mailchimp-add-or-update-subscriber",
   name: "Add or Update Subscriber",
   description: "Adds a new subscriber to an audience or updates existing subscriber.",
   version: "0.2.1",

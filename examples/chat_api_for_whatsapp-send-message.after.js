@@ -2,7 +2,7 @@
 import { axios } from "@pipedream/platform";
 
 export default {
-  key: "chat_api_for_whatsapp-send_message",
+  key: "chat_api_for_whatsapp-send-message",
   name: "Send Message",
   description: "Send a message to a new or existing chat.",
   version: "0.1.1",

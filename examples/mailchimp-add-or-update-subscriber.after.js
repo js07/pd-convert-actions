@@ -2,7 +2,7 @@
 import { axios } from "@pipedream/platform";
 
 export default {
-  key: "mailchimp-add_or_update_subscriber",
+  key: "mailchimp-add-or-update-subscriber",
   name: "Add or Update Subscriber",
   description: "Adds a new subscriber to an audience or updates existing subscriber.",
   version: "0.2.1",
