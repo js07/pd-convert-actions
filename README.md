@@ -70,8 +70,9 @@ const {
 Config
 - params_schema -> props
 - DEFAULT_NAMESPACE -> component-name-slug
-- version `<Major>.<minor>` -> `<Major>.<minor>.1`
+- VERSION_MAJOR.VERSION_MINOR -> `version: "<MAJOR>.<MINOR>.1"`
 - TITLE -> name
+- `auths.<app_name_slug>` -> app_name_slug (defaults to `app_placeholder`)
 
 Code
 - `this.$checkpoint =` -> `$.db.set("$checkpoint",` (+ `db` prop)
