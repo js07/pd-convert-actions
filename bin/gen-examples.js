@@ -79,15 +79,15 @@ async function main() {
   const actionConfigs = await readCsvFile(csvPath);
 
   for (const actionConfig of actionConfigs) {
-    const convertedAction = await convertAction(actionConfig, {
+    const { code, componentKey } = await convertAction(actionConfig, {
       defineComponent,
       createLabel,
       toEsm,
     });
 
-    const { CODE_RAW: codeRaw, DEFAULT_NAMESPACE: namespace } = actionConfig;
-    writeFile(`${componentsDirPath}/${namespace}.before.js`, codeRaw);
-    writeFile(`${componentsDirPath}/${namespace}.after.js`, convertedAction.code);
+    const { CODE_RAW: codeRaw } = actionConfig;
+    writeFile(`${componentsDirPath}/${componentKey}.before.js`, codeRaw);
+    writeFile(`${componentsDirPath}/${componentKey}.after.js`, code);
   }
 }
 

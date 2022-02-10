@@ -69,7 +69,7 @@ const {
 
 Config
 - params_schema -> props
-- DEFAULT_NAMESPACE -> component_slug
+- DEFAULT_NAMESPACE -> component-name-slug
 - version `<Major>.<minor>` -> `<Major>.<minor>.1`
 - TITLE -> name
 
