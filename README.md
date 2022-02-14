@@ -18,6 +18,7 @@ $ node bin/cli.js ./test/data/actions.csv
 ? Path to components directory to write files to ./test/output
 ? Wrap the component with `defineComponent()`? No
 ? Generate labels for component props? No
+? eslint-disable props-description rule when missing a prop description? No
 ? Convert generated component to ESM? (Y/n)
 ```
 
@@ -30,12 +31,13 @@ ARGUMENTS
   FILE  csv file containing legacy action configs
 
 OPTIONS
-  --outputType=js/csv      Output actions as a csv file or js files
-  --out                    CSV output path
-  --componentsDirPath      Path to components directory to write js files
-  --defineComponent        Wrap the component with defineComponent()
-  --createLabel            Generate labels for component props
-  --[no-]toEsm             Convert generated component to ESM (default: Yes)
+  --outputType=js/csv             Output actions as a csv file or js files
+  --out                           CSV output path
+  --componentsDirPath             Path to components directory to write js files
+  --defineComponent               Wrap the component with defineComponent()
+  --createLabel                   Generate labels for component props
+  --eslintDisablePropsDescription Disable props-description rule when missing a prop description
+  --[no-]toEsm                    Convert generated component to ESM (default: Yes)
 ```
 
 ## Lib
