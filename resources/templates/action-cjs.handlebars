@@ -17,6 +17,9 @@ module.exports = {
   description: {{tostring description}},
   version: {{tostring version}},
   type: "action",
+{{#if eslintDisablePropsDescription}}
+  /* eslint-disable pipedream/props-description */
+{{/if}}
   props: {
   {{#each props}}
     {{> componentProp }}

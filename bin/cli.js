@@ -47,6 +47,12 @@ async function prompt() {
     },
     {
       type: "confirm",
+      name: "eslintDisablePropsDescription",
+      message: "eslint-disable props-description rule when missing a prop description?",
+      default: false,
+    },
+    {
+      type: "confirm",
       name: "toEsm",
       message: "Convert generated component to ESM?",
       default: true,
@@ -95,6 +101,7 @@ async function main() {
     defineComponent,
     createLabel,
     toEsm,
+    eslintDisablePropsDescription,
   } = answers;
 
   const actionConfigs = await readCsvFile(csvPath);
@@ -105,6 +112,7 @@ async function main() {
       defineComponent,
       createLabel,
       toEsm,
+      eslintDisablePropsDescription,
     });
     convertedActions.push(convertedAction);
   }
