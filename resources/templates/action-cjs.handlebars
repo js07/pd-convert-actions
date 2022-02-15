@@ -45,6 +45,13 @@ module.exports = {
     {{#if (isdefined this.optional)}}
       optional: {{this.optional}},
     {{/if}}
+    {{#if (isdefined this.options)}}
+      options: [
+      {{#each this.options}}
+        {{tostring this}},
+      {{/each}}
+      ],
+    {{/if}}
     },
   {{/if}}
 {{/inline}}
