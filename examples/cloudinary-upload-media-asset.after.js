@@ -1,4 +1,4 @@
-// legacy_hash_id: "a_MdizBn"
+// legacy_hash_id: a_MdizBn
 import { v2 } from "cloudinary";
 
 export default {
@@ -40,11 +40,22 @@ export default {
       type: "string",
       description: "Set the type of file you are uploading or use `auto` to automatically detect the file type. Valid values: `image`, `raw`, `video` and `auto`. Defaults: `image` for server-side uploading and `auto` for client-side uploading.\n**Note**: Use the video resource type for all video assets as well as for audio files, such as `.mp3`.",
       optional: true,
+      options: [
+        "image",
+        "raw",
+        "video",
+        "auto",
+      ],
     },
     type: {
       type: "string",
       description: "The delivery type. Allows uploading assets as `private` or `authenticated` instead of the default `upload` mode. Valid values: `upload`, `private` and `authenticated`. Default: `upload`.",
       optional: true,
+      options: [
+        "upload",
+        "private",
+        "authenticated",
+      ],
     },
     access_control: {
       type: "boolean",
@@ -55,6 +66,10 @@ export default {
       type: "string",
       description: "Allows the asset to behave as if it's of the authenticated 'type' (see above) while still using the default 'upload' type in delivery URLs. The asset can later be made public by changing its access_mode via the [Admin API](https://cloudinary.com/documentation/admin_api#update_access_mode), without having to update any delivery URLs. Valid values: `public`, and `authenticated`. Default: `public`.",
       optional: true,
+      options: [
+        "public",
+        "authenticated",
+      ],
     },
     discard_original_filename: {
       type: "boolean",

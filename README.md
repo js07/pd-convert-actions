@@ -123,7 +123,7 @@ return await require("@pipedreamhq/platform").axios(this, {
 ```
 **After**
 ```js
-// legacy_hash_id: "a_2wim5R"
+// legacy_hash_id: a_2wim5R
 import { axios } from "@pipedream/platform";
 
 export default {
@@ -158,7 +158,7 @@ export default {
     },
     properties: {
       type: "object",
-      description: "\tFree-form dictionary of properties of the event, like revenue",
+      description: "Free-form dictionary of properties of the event, like revenue",
       optional: true,
     },
     timestamp: {
@@ -236,7 +236,7 @@ return await require("@pipedreamhq/platform").axios(this, {
 
 **After**
 ```js
-// legacy_hash_id: "a_RAiaJ1"
+// legacy_hash_id: a_RAiaJ1
 import { axios } from "@pipedream/platform";
 
 export default {
@@ -270,16 +270,34 @@ export default {
     statu_if_new: {
       type: "string",
       description: "Subscriber's status. This value is required only if the email address is not already present on the list.",
+      options: [
+        "subscribed",
+        "unsubscribed",
+        "cleaned",
+        "pending",
+        "transactional",
+      ],
     },
     email_type: {
       type: "string",
       description: "Type of email this member asked to get ('html' or 'text').",
       optional: true,
+      options: [
+        "html",
+        "text",
+      ],
     },
     status: {
       type: "string",
       description: "Subscriber's current status.",
       optional: true,
+      options: [
+        "subscribed",
+        "unsubscribed",
+        "cleaned",
+        "pending",
+        "transactional",
+      ],
     },
     merge_fields: {
       type: "object",
