@@ -14,7 +14,9 @@ module.exports = {
 {{~#*inline "componentProperties"}}
   key: {{tostring key}},
   name: {{tostring name}},
+{{#if description}}
   description: {{tostring description}},
+{{/if}}
   version: {{tostring version}},
   type: "action",
   props: {
