@@ -17,7 +17,7 @@ $ node bin/cli.js ./test/data/actions.csv
 ? Output as separate javascript files or a single CSV file? JavaScript
 ? Path to components directory to write files to ./test/output
 ? Wrap the component with `defineComponent()`? No
-? Generate labels for component props? No
+? Generate labels for component props without labels? No
 ? Convert generated component to ESM? (Y/n)
 ```
 
@@ -34,7 +34,7 @@ OPTIONS
   --out                    CSV output path
   --componentsDirPath      Path to components directory to write js files
   --defineComponent        Wrap the component with defineComponent()
-  --createLabel            Generate labels for component props
+  --createLabel            Generate labels for component props without labels
   --[no-]toEsm             Convert generated component to ESM (default: Yes)
 ```
 

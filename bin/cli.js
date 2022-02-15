@@ -42,7 +42,7 @@ async function prompt() {
     {
       type: "confirm",
       name: "createLabel",
-      message: "Generate labels for component props?",
+      message: "Generate labels for component props without labels?", // (param._label)
       default: false,
     },
     {
