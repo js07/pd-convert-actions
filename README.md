@@ -36,6 +36,7 @@ OPTIONS
   --defineComponent        Wrap the component with defineComponent()
   --createLabel            Generate labels for component props without labels
   --[no-]toEsm             Convert generated component to ESM (default: Yes)
+  --appPlaceholder         App name slug to use if legacy code is authless
 ```
 
 ## Lib
