@@ -95,6 +95,7 @@ async function main() {
     defineComponent,
     createLabel,
     toEsm,
+    appPlaceholder,
   } = answers;
 
   const actionConfigs = await readCsvFile(csvPath);
@@ -105,6 +106,7 @@ async function main() {
       defineComponent,
       createLabel,
       toEsm,
+      appPlaceholder,
     });
     convertedActions.push(convertedAction);
   }
