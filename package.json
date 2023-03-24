@@ -3,30 +3,33 @@
   "version": "0.5.0",
   "description": "Convert legacy actions to component actions",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
     "gen-examples": "node ./bin/gen-examples.js ./test/data/actions.csv"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "camelcase": "^6.3.0",
+    "@putout/plugin-remove-empty-pattern": "^4.2.2",
+    "camelcase": "^7.0.1",
     "csvtojson": "^2.0.10",
-    "eslint": "^7.32.0",
-    "eslint-plugin-jsonc": "^1.7.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jsonc": "^2.7.0",
     "eslint-plugin-pipedream": "^0.2.4",
-    "eslint-plugin-putout": "^6.13.1",
+    "eslint-plugin-putout": "^17.1.0",
     "handlebars": "^4.7.7",
-    "inquirer": "^8.2.0",
-    "jscodeshift": "^0.13.1",
+    "inquirer": "^9.1.5",
+    "jscodeshift": "^0.14.0",
     "json2csv": "^5.0.6",
     "lodash.once": "^4.1.1",
     "minimist": "^1.2.5",
     "param-case": "^3.0.4",
-    "putout": "^12.12.0",
+    "putout": "^29.1.5",
     "safe-identifier": "^0.4.2"
   },
   "devDependencies": {
-    "jest": "^27.5.1"
+    "jest": "^29.5.0"
   }
 }

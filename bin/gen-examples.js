@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const convert = require("../lib/convert");
-const { writeFile } = require("../lib/util");
-const csv = require("csvtojson");
+import convert from "../lib/convert.js";
+import { writeFile } from "../lib/util.js";
+import csv from "csvtojson";
 var inquirer = require("inquirer");
 
 var argv = require("minimist")(process.argv.slice(2));
