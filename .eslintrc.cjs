@@ -3,11 +3,13 @@ module.exports = {
     "jest": true,
     "node": true,
     "commonjs": true,
-    "es2021": true
+    "es6": true,
+    "es2022": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
   "ignorePatterns": [
     "test/data/**",

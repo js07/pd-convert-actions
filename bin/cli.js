@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-const convert = require("../lib/convert");
-const { writeFile } = require("../lib/util");
-const csv = require("csvtojson");
-const { parse } = require("json2csv");
-var inquirer = require("inquirer");
+import convert from "../lib/convert.js";
+import { writeFile } from "../lib/util.js";
+import csv from "csvtojson";
+import { parse } from "json2csv";
+import inquirer from "inquirer";
+import minimist from "minimist";
 
-var argv = require("minimist")(process.argv.slice(2));
+const argv = minimist(process.argv.slice(2));
 
 async function prompt() {
   return inquirer.prompt([

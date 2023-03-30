@@ -1,2 +1,1 @@
-const convert = require("./lib/convert");
-module.exports = convert;
+export { default as convert } from "./lib/convert.js";
