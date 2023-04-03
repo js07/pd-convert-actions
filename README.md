@@ -82,7 +82,7 @@ Code
 - `$send` -> `$.send`
 - `$respond` -> `$.respond`
 - `$end` -> `$.flow.exit`
-- `this.name = "value"` -> `$.export("name", "value")`
+- `this.name = "value"` -> `let name; try { name = "value" } finally { $.export("name", name) }`
 - `params` -> `this`
 - `auths.app_name` -> `this.app_name.$auth` (+ `app_name` prop)
 - `require("@pipedreamhq/platform")` -> `require("@pipedream/platform")`
