@@ -10,6 +10,9 @@
   },
   "author": "",
   "license": "ISC",
+  "jest": {
+    "transform": {}
+  },
   "dependencies": {
     "@putout/plugin-remove-empty-pattern": "^4.2.2",
     "camelcase": "^7.0.1",
@@ -25,6 +28,7 @@
     "json2csv": "^5.0.6",
     "lodash.once": "^4.1.1",
     "minimist": "^1.2.5",
+    "nanoid": "^4.0.2",
     "param-case": "^3.0.4",
     "putout": "^29.1.5",
     "safe-identifier": "^0.4.2"
