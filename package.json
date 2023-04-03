@@ -30,6 +30,7 @@
     "minimist": "^1.2.5",
     "nanoid": "^4.0.2",
     "param-case": "^3.0.4",
+    "prettier": "^2.8.7",
     "putout": "^29.1.5",
     "safe-identifier": "^0.4.2"
   },
