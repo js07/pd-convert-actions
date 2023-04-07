@@ -86,6 +86,7 @@ Code
 - `params` -> `this`
 - `auths.app_name` -> `this.app_name.$auth` (+ `app_name` prop)
 - `$attachments` -> `steps.trigger.context.attachments`
+- `event` -> `steps.trigger.event`
 - `require("@pipedreamhq/platform")` -> `require("@pipedream/platform")`
 - `.axios(this,` -> `.axios($,`
 
