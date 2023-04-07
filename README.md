@@ -85,6 +85,7 @@ Code
 - `this.name = "value"` -> `let name; try { name = "value" } finally { $.export("name", name) }`
 - `params` -> `this`
 - `auths.app_name` -> `this.app_name.$auth` (+ `app_name` prop)
+- `$attachments` -> `steps.trigger.context.attachments`
 - `require("@pipedreamhq/platform")` -> `require("@pipedream/platform")`
 - `.axios(this,` -> `.axios($,`
 
