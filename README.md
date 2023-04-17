@@ -77,8 +77,7 @@ Config
 - `auths.<app_name_slug>` -> app_name_slug (defaults to `app_placeholder`)
 
 Code
-- `this.$checkpoint =` -> `$.db.set("$checkpoint",` (+ `db` prop)
-- `this.$checkpoint` -> `$.db.get("$checkpoint")` (+ `db` prop)
+- `this.$checkpoint = "value` -> `let stepCheckpoint = await this.db.get("scp_${uid}"); try { stepCheckpoint = "value" } finally { await this.db.set("scp_${uid}") }` (+ `data_store` prop)
 - `$send` -> `$.send`
 - `$respond` -> `$.respond`
 - `$end` -> `$.flow.exit`
