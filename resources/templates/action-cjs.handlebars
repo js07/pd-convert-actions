@@ -12,18 +12,28 @@ module.exports = {
 {{/if}}
 
 {{~#*inline "componentProperties"}}
+{{#if key}}
   key: {{tostring key}},
+{{/if}}
+{{#if name}}
   name: {{tostring name}},
+{{/if}}
 {{#if description}}
   description: {{tostring description}},
 {{/if}}
+{{#if version}}
   version: {{tostring version}},
+{{/if}}
+{{#if key}}
   type: "action",
+{{/if}}
+{{#if props.[0]}}
   props: {
   {{#each props}}
     {{> componentProp }}
   {{/each}}
   },
+{{/if}}
   async run({ steps, $ }) {{{code}}}
 {{/inline}}
 
