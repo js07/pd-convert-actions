@@ -1,0 +1,10 @@
+## 0.7.0 (May 2, 2023)
+
+* Fix conversion of references to named exports used outside of assignment expressions. (#44)
+* Add `steps` arg to generated run method. (#45)
+* Adds transform for `$attachments` to `steps.context.trigger.attachments`. (#46)
+* Adds transform for `event` to `steps.trigger.event`. (#47)
+* Fix transform for `this.$checkpoint`. (#48)
+* Add transform for `$checkpoint`. (#49)
+* Add support for converting legacy code steps. (#51)
+* Fix cjs-to-esm transform causing variable conflicts converting require to import. (#52)
