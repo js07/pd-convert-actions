@@ -1,4 +1,4 @@
-{{#if (isdefined hashId)}}
+export default `{{#if (isdefined hashId)}}
 // legacy_hash_id: {{hashId}}
 {{/if}}
 {{#if defineComponent}}
@@ -64,4 +64,4 @@ module.exports = {
     {{/if}}
     },
   {{/if}}
-{{/inline}}
+{{/inline}}`;
