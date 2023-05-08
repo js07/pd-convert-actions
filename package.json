@@ -3,6 +3,7 @@
   "version": "0.7.0",
   "description": "Convert legacy actions to component actions",
   "main": "index.js",
+  "typings": "index.d.ts",
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
