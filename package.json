@@ -3,6 +3,7 @@
   "version": "0.7.0",
   "description": "Convert legacy actions to component actions",
   "main": "index.js",
+  "typings": "index.d.ts",
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "@putout/plugin-remove-empty-pattern": "^4.2.2",
+    "acorn-stage3": "^4.0.0",
     "camelcase": "^7.0.1",
     "csvtojson": "^2.0.10",
     "eslint": "^8.36.0",
@@ -23,6 +25,7 @@
     "eslint-plugin-pipedream": "^0.2.4",
     "eslint-plugin-putout": "^17.1.0",
     "handlebars": "^4.7.7",
+    "hermes-parser": "^0.11.1",
     "inquirer": "^9.1.5",
     "jscodeshift": "^0.14.0",
     "json2csv": "^5.0.6",
@@ -33,6 +36,7 @@
     "prettier": "^2.8.7",
     "putout": "^29.1.5",
     "safe-identifier": "^0.4.2",
+    "tenko": "^2.0.1",
     "varname": "^5.0.1"
   },
   "devDependencies": {
