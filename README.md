@@ -97,7 +97,7 @@ Fixes
 - Removes unused variables (eslint no-unused-var)
 - Converts variables to camelCase (eslint camelcase)
 - Converts code from CommonJS to ESModules
-- Fix eslint-fixable eslint errors
+- Fix eslint-fixable eslint errors (unsupported in browser)
 
 # Examples
 ###### _Created with v0.4.1-lw_
