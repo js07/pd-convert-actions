@@ -1,3 +1,10 @@
+## 0.7.1 (May 9, 2023)
+
+* Fix browser incompatibility from using ESLint & putout packages. (#54)
+* Install parser dependencies for putout engine-parser to fix Vite errors. (#54)
+* Fix code config input being required. (#54)
+* Add TypeScript declaration file for this package. (#54)
+
 ## 0.7.0 (May 2, 2023)
 
 * Fix conversion of references to named exports used outside of assignment expressions. (#44)
