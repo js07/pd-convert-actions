@@ -11,9 +11,6 @@
   },
   "author": "",
   "license": "ISC",
-  "jest": {
-    "transform": {}
-  },
   "dependencies": {
     "@putout/plugin-remove-empty-pattern": "^4.2.2",
     "acorn-stage3": "^4.0.0",
