@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import convert from "../lib/convert.js";
-import { writeFile } from "../lib/util.js";
-import csv from "csvtojson";
+import { writeFile, csvFileToJson } from "../lib/util.js";
 import { parse } from "json2csv";
 import inquirer from "inquirer";
 import minimist from "minimist";
@@ -55,10 +54,6 @@ async function prompt() {
   ], argv);
 }
 
-async function readCsvFile(path) {
-  return csv().fromFile(path);
-}
-
 async function convertAction(actionConfig, options) {
   const {
     CODE_RAW: codeRaw,
@@ -100,7 +95,7 @@ async function main() {
     addPlaceholderAppProp,
   } = answers;
 
-  const actionConfigs = await readCsvFile(csvPath);
+  const actionConfigs = await csvFileToJson(csvPath);
 
   let convertedActions = [];
   for (const actionConfig of actionConfigs) {
