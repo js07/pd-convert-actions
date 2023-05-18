@@ -1,3 +1,10 @@
+## 0.7.2 (May 18, 2023)
+
+* Fix event transform converting property keys. (#55)
+* Add snapshot tests for converting actions. (#56)
+* Update package dependencies. (#57)
+* Refactor collection and util functions. (#58)
+
 ## 0.7.1 (May 9, 2023)
 
 * Fix browser incompatibility from using ESLint & putout packages. (#54)
