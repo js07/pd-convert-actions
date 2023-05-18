@@ -40,16 +40,16 @@ OPTIONS
   --addPlaceholderAppProp  Add an appPlaceholder app prop if no apps are found
 ```
 
-## Lib
+## Programmatic
 
 Install
 ```
-npm install https://github.com/js07/pd-convert-actions
+npm install @js07/pd-convert-actions
 ```
 
 Convert action
 ```js
-const convert = require("pd-convert-actions");
+const convert = require("@js07/pd-convert-actions");
 const actionConfig = {
   code: "raw legacy action code;",
   title: "Title/Name of the action",
