@@ -1,3 +1,8 @@
+## 0.7.3 (July 31, 2023)
+
+* Update package dependencies.
+* Add link to demo/playground to README.
+
 ## 0.7.2 (May 18, 2023)
 
 * Fix event transform converting property keys. (#55)
