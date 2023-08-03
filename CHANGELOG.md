@@ -1,3 +1,7 @@
+## 0.7.4 (August 3, 2023)
+
+* Fix compatibility with frontend tools.
+
 ## 0.7.3 (July 31, 2023)
 
 * Update package dependencies.
