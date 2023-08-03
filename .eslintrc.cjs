@@ -7,9 +7,14 @@ module.exports = {
     "es2022": true
   },
   "extends": "eslint:recommended",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "plugins": [ "@babel/plugin-syntax-import-assertions" ]
+    }
   },
   "ignorePatterns": [
     "test/data/**",
